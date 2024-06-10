@@ -1,0 +1,311 @@
+/* CSS reset */
+
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+* {
+	margin: 0;
+}
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	font-size: 16px; /* font size as per style guide */
+	font-family: var(--regular-font);
+}
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+#root,
+#__next {
+	isolation: isolate;
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("./assets/fonts/Roboto-Regular.ttf");
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: "Roboto-bold";
+	src: url("./assets/fonts/Roboto-Bold.ttf");
+	font-weight: 700;
+}
+
+
+:root {
+	--tomato: hsl(4, 100%, 67%);
+	--dark-slate-grey: hsl(234, 29%, 20%);
+	--charcoal: hsl(235, 18%, 26%);
+	--grey: hsl(231, 7%, 60%);
+	--white: hsl(0, 0%, 100%);
+
+	--bold-font: "Roboto-bold";
+	--regular-font: "Roboto";
+}
+
+body {
+	background-color: var(--dark-slate-grey);
+	display: grid;
+	place-items: center;
+	height: 100vh;
+}
+
+.main-section {
+	background-color: var(--white);
+	width: 40rem;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-areas: "left right";
+	gap: 1rem;
+	border-radius: 1.25rem;
+	padding: 1rem;
+	height: 29.5rem;
+}
+
+.left {
+	grid-area: left;
+	padding-inline: 2rem;
+	margin-top: 3.25rem;
+}
+
+.right {
+	grid-area: right;
+}
+
+
+.thank-you-state {
+	background-color: var(--white);
+	border-radius: 1.25rem;
+	width: 20rem;
+	padding: 2.5rem;
+	display: none;
+}
+
+.thank-you-state h1 {
+	line-height: 2.25rem;
+	margin-top: 1.5rem;
+}
+
+.thank-you-state img {
+	height: 2rem;
+	width: 2rem;
+}
+
+.thank-you-state p {
+	margin-block: .75rem;
+	font-size: 0.65rem;
+}
+
+h1 {
+	font-size: 2.3rem;
+	font-family: var(--bold-font);
+	color: var(--dark-slate-grey);
+	margin-bottom: 0.6rem;
+}
+
+.intro {
+	font-size: 0.65rem;
+}
+
+.offering {
+	display: flex;
+	font-size: .6rem;
+	gap: .75rem;
+	margin-block: .5rem;
+}
+
+.offer {
+	padding: 0;
+	margin-block: 1rem;
+}
+
+.offer img {
+	height: 1rem;
+	width: 1rem;
+}
+
+input {
+	width: 100%;
+	line-height: 2rem;
+	padding-left: 1rem;
+	border-radius: 0.25rem;
+	border: 1px solid var(--grey);
+	font-family: var(--regular-font);
+	font-size: .6rem;
+}
+
+.email-label {
+	font-family: var(--bold-font);
+	font-size: .5rem;
+	margin-bottom: .25rem;
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+button {
+	margin-top: 1rem;
+	line-height: 2.25rem;
+	width: 100%;
+	border-radius: .25rem;
+	border: none;
+	color: white;
+	background-color: var(--dark-slate-grey);
+	font-family: var(--bold-font);
+	font-size: .55rem;
+}
+
+input:focus {
+	outline: none;
+}
+
+input:hover {
+	cursor: pointer;
+}
+
+button:hover {
+	cursor: pointer;
+	background: linear-gradient(to right, rgb(245, 85, 99) 25%, rgba(253, 102, 15, 0.966) );
+	box-shadow: 0 0.5rem 1.5rem var(--tomato);
+}
+
+.error {
+	color: tomato;
+	display: none;
+}
+
+
+.error-input {
+	background-color: rgba(255, 99, 71, 0.219);
+	color: var(--tomato);
+	border: 1px solid var(--tomato)
+}
+
+.contact-email {
+	font-family: var(--bold-font);
+	color: var(--dark-slate-grey);
+}
+
+@media (max-width: 600px) {
+
+	main {
+		height: 100vh;
+	}
+	.main-section {
+		width: 100vw;
+		border-radius: 0;
+		grid-template-areas: "right"
+				     "left";
+		padding: 0;
+		gap: 2rem;
+		height: auto;
+	}
+
+	.right {
+		grid-area: "right";
+		width: 100vw;
+	}
+
+	picture img{
+		width: 100vw;
+		height: 100%;
+	}
+
+	.left {
+		margin-top: -2rem;
+		padding: 1.5rem;
+		height: 100vh;
+	}
+
+	.intro {
+	font-size: 1rem;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+	}
+
+	.offering {
+		font-size: 1rem;
+		align-items: top;
+	}
+
+	.offer img {
+	height: 1.25rem;
+	width: 1.25rem;
+	}
+
+	.offer {
+		margin-block: 1.5rem;
+	}
+
+	.email-label {
+		font-size: .7rem;
+	}
+
+	input {
+		line-height: 2.75rem;
+		font-size: 1rem;
+		border-radius: .35rem;
+	}
+
+	button {
+		line-height: 3rem;
+		font-size: 1rem;
+	}
+
+	.thank-you-state {
+		height: 100vh;
+		width: 100vw;
+		border-radius: 0;
+		padding-inline: 1.5rem;
+	}
+
+	.thank-you-state img {
+		height: 3rem;
+		width: 3rem;
+		margin-top: 5rem;
+	}
+
+	.thank-you-state h1 {
+		margin-block: 2rem;
+		font-size: 2.5rem;
+	}
+
+	.thank-you-state p {
+		font-size: 1rem;
+	}
+
+	.thank-you-state button {
+		margin-top: 11rem;
+	}
+
+}
